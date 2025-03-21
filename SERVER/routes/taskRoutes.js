@@ -4,13 +4,13 @@ const router = express.Router();
 
 router.post("/", async(req, res)=>{
     try{
-        const {name, description, dueDate} = req.body;
+        const {title, description, dueDate} = req.body;
 
-        if(!name||!description||!dueDate){
-            return res.status(400).json({message:'name, description and Due Date are required fields'});
+        if(!title||!description||!dueDate){
+            return res.status(400).json({message:'title, description and Due Date are required fields'});
         }
 
-        const newTask = await new Task({name, description, dueDate:(new Date(dueDate))});
+        const newTask = await new Task({title, description, dueDate:(new Date(dueDate))});
         await newTask.save();
 
         return res.status(201).json({message:"New task added successfully", newTask});

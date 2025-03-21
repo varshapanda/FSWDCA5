@@ -15,7 +15,7 @@ const TaskList = ({tasks, setTasks})=>{
             <ul>
                 {tasks.map((task)=>(
                     <li key={task._id}>
-                        {task.name} - {task.description} - Due Date:{new Date(task.dueDate).toLocaleString()} - {task.status}
+                        {task.title} - {task.description} - Due Date:{new Date(task.dueDate).toLocaleString()} - {task.status}
                     </li>
                 ))}
             </ul>

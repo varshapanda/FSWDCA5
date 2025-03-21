@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 const AddTasks = ({setTasks})=>{
-    const[name, setName] = useState("");
+    const[title, setTitle] = useState("");
     const[description, setDescription] = useState("");
     const[dueDate, setDueDate] = useState("");
     const[status, setStatus] = useState("Pending");
@@ -12,13 +12,13 @@ const AddTasks = ({setTasks})=>{
 
         try{
             const response = await axios.post("http://localhost:5000/tasks", {
-                name, 
+                title, 
                 description,
                 dueDate,
                 status
             });
             setTasks((prevTasks)=>[prevTasks, response.data.newTask]);
-            setName("");
+            setTitle("");
             setDescription("");
             setDueDate("");
             setStatus("Pending");
@@ -34,12 +34,12 @@ const AddTasks = ({setTasks})=>{
             <form onSubmit={handleSubmit}>
                 <h3>ADD TASKS</h3>
                 <div>
-                    <label>Name: </label>
+                    <label>Title: </label>
                     <input
                     type="text"
-                    placeholder='Enter the task name'
-                    value={name}
-                    onChange={(e)=>setName(e.target.value)}
+                    placeholder='Enter the title'
+                    value={title}
+                    onChange={(e)=>setTitle(e.target.value)}
                     required
                     />
                 </div>

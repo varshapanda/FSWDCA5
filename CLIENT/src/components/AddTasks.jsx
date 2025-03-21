@@ -5,7 +5,7 @@ const AddTasks = ({setTasks})=>{
     const[name, setName] = useState("");
     const[description, setDescription] = useState("");
     const[dueDate, setDueDate] = useState("");
-    const[status, setStatus] = useState("");
+    const[status, setStatus] = useState("Pending");
 
     const handleSubmit = async(e)=>{
         e.preventDefault();

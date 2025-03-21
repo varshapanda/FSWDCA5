@@ -11,7 +11,7 @@ const TaskList = ({tasks, setTasks})=>{
 
     return(
         <div>
-            <h3>TASK LIST </h3>
+            <h3>VIEW TASKS</h3>
             <ul>
                 {tasks.map((task)=>(
                     <li key={task._id}>
